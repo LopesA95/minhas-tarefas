@@ -14,19 +14,21 @@ export const Tarefa = ({ description, priority, status, title }: Props) => {
   return (
     <S.Card>
       <S.Title>{title}</S.Title>
-      <S.Tags>{priority}</S.Tags>
-      <S.Tags>{status}</S.Tags>
+      <S.Tags priority={priority}>{priority}</S.Tags>
+      <S.Tags status={status}>{status}</S.Tags>
       <S.Description value={description} />
       <S.ActionBar>
         {editing ? (
           <>
-            <S.Button>Salvar</S.Button>
-            <S.Button onClick={() => setEditing(false)}>Cancelar</S.Button>
+            <S.ButtonSave>Salvar</S.ButtonSave>
+            <S.ButtonCancel onClick={() => setEditing(false)}>
+              Cancelar
+            </S.ButtonCancel>
           </>
         ) : (
           <>
             <S.Button onClick={() => setEditing(true)}>Editar</S.Button>
-            <S.Button>Remover</S.Button>
+            <S.ButtonCancel>Remover</S.ButtonCancel>
           </>
         )}
       </S.ActionBar>

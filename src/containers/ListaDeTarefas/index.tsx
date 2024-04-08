@@ -13,7 +13,7 @@ const tarefas = [
     id: 2,
     title: 'Pagar a conta de internet',
     description: 'Baixar fatura no gmail',
-    priority: 'Urgente',
+    priority: 'urgente',
     status: 'concluída'
   },
   {
