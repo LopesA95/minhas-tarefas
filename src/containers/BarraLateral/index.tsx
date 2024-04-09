@@ -4,6 +4,7 @@ import { FilterCard } from '../../components/FilterCard/index'
 import * as S from './styles'
 import { RootReducer } from '../../store'
 import { modifyTerm } from '../../store/reducers/filter'
+import * as enums from './../../utils/enums/Tarefa'
 
 export const BarraLateral = () => {
   const dispatch = useDispatch()
@@ -18,12 +19,32 @@ export const BarraLateral = () => {
           onChange={(e) => dispatch(modifyTerm(e.target.value))}
         />
         <S.Filters>
-          <FilterCard legend="pendentes" cont={1} />
-          <FilterCard legend="concluídas" cont={2} />
-          <FilterCard legend="urgentes" cont={3} />
-          <FilterCard legend="importantes" cont={4} />
-          <FilterCard legend="normal" cont={5} />
-          <FilterCard active legend="todas" cont={7} />
+          <FilterCard
+            valor={enums.Status.PENDENTE}
+            critery="status"
+            legend="pendentes"
+          />
+          <FilterCard
+            valor={enums.Status.CONCLUIDA}
+            critery="status"
+            legend="concluídas"
+          />
+          <FilterCard
+            valor={enums.Priority.URGENTE}
+            critery="prioridade"
+            legend="urgentes"
+          />
+          <FilterCard
+            valor={enums.Priority.IMPORTANTE}
+            critery="prioridade"
+            legend="importantes"
+          />
+          <FilterCard
+            valor={enums.Priority.NORMAL}
+            critery="prioridade"
+            legend="normal"
+          />
+          <FilterCard critery="todas" legend="todas" />
         </S.Filters>
       </div>
     </S.Aside>
