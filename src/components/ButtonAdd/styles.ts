@@ -6,13 +6,23 @@ export const Circle = styled(Link)`
   width: 64px;
   background-color: #44bd32;
   color: #fff;
-  position: fixed;
+  position: absolute;
   bottom: 40px;
   right: 40px;
   border-radius: 50%;
+
   display: flex;
-  justify-content: center;
   text-align: center;
+  justify-content: center;
   font-size: 40px;
   text-decoration: none;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 2px;
+    font-size: 40px;
+  }
 `

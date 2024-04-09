@@ -5,6 +5,7 @@ import * as S from './styles'
 import { RootReducer } from '../../store'
 import { modifyTerm } from '../../store/reducers/filter'
 import * as enums from './../../utils/enums/Tarefa'
+import { Input } from './../../styles/'
 
 export const BarraLateral = () => {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ export const BarraLateral = () => {
   return (
     <S.Aside>
       <div>
-        <S.Input
+        <Input
           type="text"
           placeholder="Buscar"
           value={term}

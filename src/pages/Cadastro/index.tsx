@@ -1,1 +1,9 @@
-export const Cadastro = () => <div>Nova tarefa</div>
+import { BarraLateral } from '../../containers/BarraLateral'
+import { Formulario } from '../../containers/Formulario'
+
+export const Cadastro = () => (
+  <>
+    <BarraLateral />
+    <Formulario />
+  </>
+)

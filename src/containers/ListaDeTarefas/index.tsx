@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import Tarefa from '../../components/Tarefa'
-import { Container, Result } from './styles'
 import { RootReducer } from '../../store'
+import { MainContainer, Title } from '../../styles'
 
 export const ListaDeTarefas = () => {
   const { itens } = useSelector((state: RootReducer) => state.tarefas)
@@ -34,7 +34,6 @@ export const ListaDeTarefas = () => {
         ? `e
     "${term}"`
         : ''
-
     if (critery === 'todas') {
       mensage = `${quantity} tarefa(s) encontrada(s) como: todas ${complementation}`
     } else {
@@ -48,8 +47,8 @@ export const ListaDeTarefas = () => {
   const mensage = resultFilteredView(tasks.length)
 
   return (
-    <Container>
-      <Result>{mensage}</Result>
+    <MainContainer>
+      <Title as="p">{mensage}</Title>
       <ul>
         {tasks.map((t) => (
           <li key={t.id}>
@@ -63,6 +62,6 @@ export const ListaDeTarefas = () => {
           </li>
         ))}
       </ul>
-    </Container>
+    </MainContainer>
   )
 }
