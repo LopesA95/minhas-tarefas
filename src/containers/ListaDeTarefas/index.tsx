@@ -36,9 +36,9 @@ export const ListaDeTarefas = () => {
         : ''
 
     if (critery === 'todas') {
-      mensage = `${quantity} tarefas encontradas como: todas ${complementation}`
+      mensage = `${quantity} tarefa(s) encontrada(s) como: todas ${complementation}`
     } else {
-      mensage = `${quantity} tarefas encontradas como: "${`${critery}: ${valor}`}" ${complementation}`
+      mensage = `${quantity} tarefa(s) encontrada(s) como: "${`${critery}: ${valor}`}" ${complementation}`
     }
 
     return mensage
