@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Tarefa } from '../../components/Tarefa'
+import Tarefa from '../../components/Tarefa'
 import { Container } from './styles'
 import { RootReducer } from '../../store'
 

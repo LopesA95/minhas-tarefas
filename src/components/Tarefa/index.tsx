@@ -1,15 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
-import { deleteTask } from '../../store/reducers/tarefas'
+import { deleteTask, editingTask } from '../../store/reducers/tarefas'
 import TarefaClass from '../../models/Tarefa'
 
 type Props = TarefaClass
 
-export const Tarefa = ({ description, priority, status, title, id }: Props) => {
+const Tarefa = ({
+  description: descriptionOrigin,
+  priority,
+  status,
+  title,
+  id
+}: Props) => {
   const dispatch = useDispatch()
   const [editing, setEditing] = useState(false)
+  const [description, setDescription] = useState('')
+
+  useEffect(() => {
+    if (descriptionOrigin.length > 0) setDescription(descriptionOrigin)
+  }, [descriptionOrigin])
+
+  function handleCancelEdithing() {
+    setEditing(false)
+    setDescription(descriptionOrigin)
+  }
 
   return (
     <S.Card>
@@ -20,12 +36,31 @@ export const Tarefa = ({ description, priority, status, title, id }: Props) => {
       <S.Tags paramether="status" status={status}>
         {status}
       </S.Tags>
-      <S.Description value={description} />
+      <S.Description
+        disabled={!editing}
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
       <S.ActionBar>
         {editing ? (
           <>
-            <S.ButtonSave>Salvar</S.ButtonSave>
-            <S.ButtonCancel onClick={() => setEditing(false)}>
+            <S.ButtonSave
+              onClick={() => {
+                dispatch(
+                  editingTask({
+                    description,
+                    priority,
+                    status,
+                    title,
+                    id
+                  })
+                )
+                setEditing(false)
+              }}
+            >
+              Salvar
+            </S.ButtonSave>
+            <S.ButtonCancel onClick={handleCancelEdithing}>
               Cancelar
             </S.ButtonCancel>
           </>
@@ -41,3 +76,5 @@ export const Tarefa = ({ description, priority, status, title, id }: Props) => {
     </S.Card>
   )
 }
+
+export default Tarefa
