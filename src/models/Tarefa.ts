@@ -1,6 +1,6 @@
 import * as enums from '../utils/enums/Tarefa'
 
-export class Tarefa {
+class Tarefa {
   title: string
   priority: enums.Priority
   status: enums.Status
@@ -21,3 +21,5 @@ export class Tarefa {
     this.id = id
   }
 }
+
+export default Tarefa

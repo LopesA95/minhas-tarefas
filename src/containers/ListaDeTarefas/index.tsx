@@ -8,9 +8,10 @@ export const ListaDeTarefas = () => {
   return (
     <Container>
       <ul>
-        {tarefas.map((t) => (
+        {tarefas.itens.map((t) => (
           <li key={t.id}>
             <Tarefa
+              id={t.id}
               description={t.description}
               title={t.title}
               status={t.status}
