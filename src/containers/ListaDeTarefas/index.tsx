@@ -1,27 +1,28 @@
 import { Tarefa } from '../../components/Tarefa'
 import { Container } from './styles'
+import * as enums from './../../utils/enums/Tarefa'
 
 const tarefas = [
   {
     id: 1,
     title: 'Estudar Typescript',
     description: 'Tipagem de codigo',
-    priority: 'normal',
-    status: 'pendente'
+    priority: enums.Priority.NORMAL,
+    status: enums.Status.PENDENTE
   },
   {
     id: 2,
     title: 'Pagar a conta de internet',
     description: 'Baixar fatura no gmail',
-    priority: 'urgente',
-    status: 'concluída'
+    priority: enums.Priority.URGENTE,
+    status: enums.Status.CONCLUIDA
   },
   {
     id: 3,
     title: 'Ir para a academia',
     description: 'Fazer o treino de B',
-    priority: 'importante',
-    status: 'pendente'
+    priority: enums.Priority.IMPORTANTE,
+    status: enums.Status.PENDENTE
   }
 ]
 

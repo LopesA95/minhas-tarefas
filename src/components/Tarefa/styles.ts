@@ -1,18 +1,21 @@
 import styled from 'styled-components'
 import variaveis from '../../styles/variaveis'
 
+import * as enums from '../../utils/enums/Tarefa'
+
 type TagProps = {
-  priority?: string
-  status?: string
+  priority?: enums.Priority
+  status?: enums.Status
+  paramether: 'status' | 'priority'
 }
 
 function returnColorBackground(props: TagProps): string {
-  if ('status' in props) {
-    if (props.status === 'pendente') return variaveis.amarelo
-    if (props.status === 'concluída') return variaveis.verde
-  } else if ('priority' in props) {
-    if (props.priority === 'urgente') return variaveis.vermelho
-    if (props.priority === 'importante') return variaveis.amarelo2
+  if (props.paramether === 'priority') {
+    if (props.priority === enums.Priority.URGENTE) return variaveis.vermelho
+    if (props.priority === enums.Priority.IMPORTANTE) return variaveis.amarelo2
+  } else {
+    if (props.status === enums.Status.PENDENTE) return variaveis.amarelo
+    if (props.status === enums.Status.CONCLUIDA) return variaveis.verde
   }
   return '#ccc'
 }
