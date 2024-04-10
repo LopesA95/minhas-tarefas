@@ -6,7 +6,6 @@ import { ButtonSave, Input, MainContainer, Title } from '../../styles'
 import { Form, Options, Option } from './styles'
 import * as enums from '../../utils/enums/Tarefa'
 import { cadastrarTask } from '../../store/reducers/tarefas'
-import Tarefa from '../../models/Tarefa'
 
 export const Formulario = () => {
   const dispatch = useDispatch()
@@ -17,14 +16,14 @@ export const Formulario = () => {
 
   const addTasks = (e: FormEvent) => {
     e.preventDefault()
-    const taskForAdd = new Tarefa(
-      title,
-      priority,
-      enums.Status.PENDENTE,
-      description,
-      9
+    dispatch(
+      cadastrarTask({
+        title,
+        priority,
+        description,
+        status: enums.Status.PENDENTE
+      })
     )
-    dispatch(cadastrarTask(taskForAdd))
     navigate('/')
   }
 

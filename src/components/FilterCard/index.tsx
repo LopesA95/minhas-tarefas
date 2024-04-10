@@ -40,8 +40,9 @@ export const FilterCard = ({ legend, critery, valor }: Props) => {
 
   const cont = contTastks()
   const active = isActiveVerification()
+
   return (
-    <S.Card active={active} onClick={filtered}>
+    <S.Card active={active ? true : false} onClick={filtered}>
       <S.Cont>{cont}</S.Cont>
       <S.Label>{legend}</S.Label>
     </S.Card>

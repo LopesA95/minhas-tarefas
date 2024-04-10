@@ -4,7 +4,7 @@ import { BarraLateral } from './../../containers/BarraLateral/'
 
 export const Home = () => (
   <>
-    <BarraLateral />
+    <BarraLateral visibilityFilters />
     <ListaDeTarefas />
     <ButtonAdd />
   </>
